@@ -33,7 +33,7 @@ public class ConsistentHash<T> {
  public void remove(T node) {
    for (int i = 0; i < numberOfReplicas; i++) {
     try {
-           circle.remove(AeSimpleMD5.MD5(node.toString() + i), node);
+           circle.put(AeSimpleMD5.MD5(node.toString() + i), node);
          } catch (Exception e) {
 	System.out.println(e);
           
